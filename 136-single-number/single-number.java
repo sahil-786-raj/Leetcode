@@ -1,9 +1,24 @@
+import java.util.*;
+
 class Solution {
     public int singleNumber(int[] nums) {
-        int res=0;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+    
         for(int i=0; i<nums.length; i++){
-            res = res ^ nums[i];
+            if(hm.containsKey(nums[i])){
+                hm.put(nums[i], hm.get(nums[i]) + 1);
+            }else{
+                hm.put(nums[i],  1);
+            }
         }
-        return res;
+        
+        Set<Integer> keys =  hm.keySet();
+        for (Integer k :keys) {
+            if(hm.get(k) == 1){
+                return k;
+            }
+        }
+
+        return -1;
     }
 }
