@@ -9,8 +9,8 @@ class Solution {
 
         if(target == 0){
             if(!hs.contains(new ArrayList(combi))){
-                ans.add(new ArrayList(combi));
-                hs.add(new ArrayList(combi));
+                ans.add(new ArrayList<>(combi));
+                hs.add(new ArrayList<>(combi));
             }
             return ;
         }
