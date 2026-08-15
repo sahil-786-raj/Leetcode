@@ -13,6 +13,11 @@ class Solution {
         subset.add(arr[i]);
         findsubset(arr, i+1, subset, res);
         subset.remove(subset.size() - 1);
+
+        int idx = i+1;
+        while(idx<n && arr[idx] == arr[idx-1]){
+            idx++;
+        }
         findsubset(arr, i+1, subset, res);
     }
 
