@@ -32,7 +32,7 @@ class Solution {
             carry = sum/10;
 
             curr.next = newnode;
-            curr = curr.next;
+            curr = newnode;
 
             if(head1 != null){
                 head1 = head1.next;
