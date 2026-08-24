@@ -46,7 +46,6 @@ class Solution {
         if(carry != 0){
             ListNode newnode = new ListNode(carry);
             curr.next = newnode;
-            curr = curr.next;
         }
 
         return dummynode.next;
