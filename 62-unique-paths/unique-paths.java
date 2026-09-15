@@ -1,14 +1,23 @@
 class Solution {
-    public int uniquePaths(int m, int n) {
-        long ans = 1;
-
-        int total = m + n - 2;
-        int r = Math.min(m - 1, n - 1);
-
-        for (int i = 1; i <= r; i++) {
-            ans = ans * (total - r + i) / i;
+    public static int uniqueways(int i, int j, int m, int n,int dp[][]){
+        if(i == m || j == n){
+            return 0;
         }
 
-        return (int) ans;
+        if(i == m-1 && j == n-1){
+            return 1;
+        }
+
+        if(dp[i][j] != 0){
+            return dp[i][j];
+        }
+
+        dp[i][j] = uniqueways(i+1, j, m, n, dp) + uniqueways(i, j+1, m, n, dp);  
+
+        return dp[i][j];
+    }
+    public int uniquePaths(int m, int n) {
+        int dp[][] = new int[m][n];
+        return uniqueways(0,0,m,n,dp); 
     }
 }
