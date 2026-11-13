@@ -31,7 +31,7 @@ class Solution {
 
         PriorityQueue<pair> pq = new PriorityQueue<>();
 
-        for(int i = 0; i < nums1.length; i++) {
+        for(int i = 0; i < Math.min(nums1.length, k); i++) {
             pq.add(new pair(nums1[i], nums2[0], nums1[i] + nums2[0], i, 0));
         }
 
@@ -47,7 +47,7 @@ class Solution {
             res.add(list);
 
             k--;
-
+            
             if(p.j + 1 < nums2.length) {
 
                 int nextJ = p.j + 1;
